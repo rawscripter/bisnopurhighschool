@@ -27,8 +27,8 @@ class CreateStudentsTable extends Migration
             $table->string('father_nid_no');
             $table->string('mother_name');
             $table->string('mother_nid_no');
-            $table->string('guardian_name');
-            $table->string('guardian_nid_no');
+            $table->string('guardian_name')->nullable();
+            $table->string('guardian_nid_no')->nullable();
             $table->string('desire_class');
             $table->string('present_address');
             $table->string('present_devision');
@@ -40,9 +40,11 @@ class CreateStudentsTable extends Migration
             $table->string('permanent_district');
             $table->string('permanent_thana');
             $table->string('permanent_post_code');
+            $table->string('prev_class')->nullable();
+            $table->string('prev_school')->nullable();
             $table->string('version')->default('bangla');
-            $table->boolean('status')->default(0); // 0 = inactive, 1 = active
-            $table->bollean('is_rejected')->default(0); // 0 = not rejected, 1 = rejected
+            $table->integer('status')->default(0); // 0 = inactive, 1 = active
+            $table->integer('is_rejected')->default(0); // 0 = not rejected, 1 = rejected
             $table->bigInteger('rejected_by')->nullable();
             $table->timestamps();
         });

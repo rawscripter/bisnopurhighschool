@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-md-10 m-auto">
-                        <form method="POST" action="{{ route('student.store') }}">
+                        <form method="POST" action="{{ route('student.store') }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <fieldset>
 
@@ -208,7 +208,7 @@
                                                 <small>(যে শ্রেণিতে ভর্তি হতে চান সেটি
                                                     নির্বাচন করুন।)</small>
 
-                                                <select name="desire_class" class="form-control">
+                                                <select name="desire_class" class="form-control desire_class">
                                                     <option value="">নির্বাচন করুন</option>
                                                     <option value="1">প্রথম</option>
                                                     <option value="2">দ্বিতীয়</option>
@@ -233,15 +233,15 @@
                                         </div>
                                     </div>
 
-                                    {{-- <div class="row" id="prevSchoolDetails">
-                                        <div class="col-lg-9">
+                                    <div class="row" id="prevSchoolDetails" style="display: none">
+                                        <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="previousSchoolName" class="required">পূর্ববর্তী স্কুলের
                                                     নাম </label>
                                                 <input type="text" name="previousSchoolName" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="previousClassId" class="required">
                                                     পূর্ববর্তী শ্রেণী <span style="color: red;">*</span></label>
@@ -262,7 +262,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </section>
 
                                 <section class="section box-shadow">
@@ -490,12 +490,11 @@
                                             <div class="form-group">
                                                 <label for="">Bkash / Nagad Transcation ID <span
                                                         style="color: red;">*</span> </label>
-                                                <input type="text" class="form-control">
+                                                <input name="transaction_id" type="text" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                 </section>
-
                                 <br>
                                 <div class="row">
                                     <div class="col-md-4 m-auto">
@@ -510,6 +509,5 @@
         </section>
         <br>
 
-        <br>
     </main>
 @endsection

@@ -38,5 +38,7 @@ class Student extends Model
         'status',
         'is_rejected',
         'rejected_by',
+        'prev_class',
+        'prev_school',
     ];
 }

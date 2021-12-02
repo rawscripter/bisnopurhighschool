@@ -73,3 +73,26 @@ font-size: 16px !important;
 .show{
     display: block;
 }
+
+.download-button{
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    display: block;
+    color: #6262ee;
+}
+.download-page{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.go-back-button{
+    display: block;
+    margin-top: 50px;
+    font-size: 20px;
+    text-decoration: underline;
+    color: #9b9191;
+}

@@ -46,4 +46,13 @@ $(document).ready(function () {
             });
         });
     });
+    $('.desire_class').change(function () {
+        var desire_class = $(this).val();
+        // ajax request
+        if (desire_class > 1) {
+            $("#prevSchoolDetails").css('display', 'block');
+        } else {
+            $("#prevSchoolDetails").css('display', 'none');
+        }
+    });
 });

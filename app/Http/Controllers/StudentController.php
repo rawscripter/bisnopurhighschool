@@ -46,7 +46,6 @@ class StudentController extends Controller
         // validate the data
         $data =  $this->validate($request, [
             'name' => 'required|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:100',
             'birth_certificate_no'  => 'required|max:255',
             'birth_date'  => 'required|date',
             'gender' => 'required',
@@ -66,32 +65,27 @@ class StudentController extends Controller
             'permanent_district' => 'required',
             'permanent_thana' => 'required',
             'permanent_post_code' => 'required',
-            'transaction_id' => 'transaction_id',
+            'transaction_id' => 'required',
         ]);
 
-        dd('ok');
+
         // store in the database
-        // create new uuid for student
-        $uuid = Str::uuid()->toString();
-
-        // check if uuid already exists
-        $student = Student::where('uuid', $uuid)->first();
-        if (!empty($student)) {
-            $uuid = Str::uuid()->toString();
-        }
-
+        $uuid = $this->randomID();
+        $data = $request->all();
         $data['uuid'] = $uuid;
 
         // upload image
         $image = $request->file('image');
+
         // set image name to studnet name
         $image_name = $data['name'];
         // set image extension
         $image_extension = $image->getClientOriginalExtension();
         // set image name
-        $image_name = $image_name . $uuid .  '.' . $image_extension;
+        $image_name = $image_name . '-' . time() .  '.' . $image_extension;
         // upload image
-        $image->move('images/students', $image_name);
+        $request->image->move(public_path('images/students'), $image_name);
+
 
         $data['image'] = $image_name;
 
@@ -100,10 +94,17 @@ class StudentController extends Controller
         $student = Student::create($data);
 
         if ($student) {
-            return redirect()->back()->with('success', 'Student created successfully');
+            return redirect()->route('register.success', $uuid);
         } else {
             return redirect()->back()->with('error', 'Something went wrong');
         }
+    }
+
+    public  function randomID()
+    {
+        // generate a 8 digit random string from a-zA-Z0-9
+        $random_string = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 8);
+        return $random_string;
     }
 
     /**
@@ -163,5 +164,12 @@ class StudentController extends Controller
         $Upazila = Upazila::where('district_id', $district)->get();
 
         return response()->json($Upazila);
+    }
+
+    public function success($uuid)
+    {
+        $student = Student::where('uuid', $uuid)->first();
+
+        return view('frontend.register-success', compact('student'));
     }
 }
