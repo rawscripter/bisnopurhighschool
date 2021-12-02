@@ -1,0 +1,72 @@
+.logo-container {
+    margin-right: 20px;
+}
+
+header {
+    padding: 16px;
+    box-shadow: -7px 1px 11px rgb(107 106 106 / 31%);
+}
+
+.govt-org{
+font-size: 20px;
+}
+
+.header-title{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.header-title h2{
+    font-size: 30px;
+    font-weight: 700;
+}
+.form-description-area{
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+section
+{
+padding:20px 0;
+}
+label{
+margin-bottom: 10px;
+font-weight: bold;
+}
+
+
+section.section {
+    margin: 30px 0;
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.box-shadow{
+     box-shadow: 2px 4px 7px 1px rgb(0 0 0 / 8%);
+}
+
+
+.btn-parimary{
+    background-color: #1d1d1d;
+    border-color: #1d1d1d;
+    color: #fff;
+    height: 45px;
+}
+
+
+.btn-parimary:hover{
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+ }
+
+ .inner-page{
+    padding-bottom: 50px;
+ }
+
+
+
+
+input{
+font-size: 16px !important;
+}
