@@ -70,3 +70,6 @@ section.section {
 input{
 font-size: 16px !important;
 }
+.show{
+    display: block;
+}

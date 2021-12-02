@@ -26,10 +26,9 @@
                         </div>
                     </div>
                     <div class="col-md-10 m-auto">
-                        <form>
+                        <form method="POST" action="{{ route('student.store') }}">
                             {{ csrf_field() }}
                             <fieldset>
-
 
                                 <section class="section box-shadow">
                                     <div class="row">
@@ -37,34 +36,64 @@
                                             <div class="form-group">
                                                 <label for="name" class="required" lang="bn">নাম <span
                                                         style="color: red;">*</span></label>
-                                                <input class="form-control" type="text" name="name" id="" value="">
+                                                <input class="form-control" type="text" name="name" id=""
+                                                    value="{{ old('name') }}">
+
+                                                @error('name')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="dateOfBirth" class="required">জন্ম তারিখ <span
+                                                <label for="birth_date" class="required">জন্ম তারিখ <span
                                                         style="color: red;">*</span></label>
-                                                <input type="date" name="dateOfBirth" id="" value="" class="form-control">
+
+                                                <input type="date" name="birth_date" class="form-control"
+                                                    value="{{ old('birth_date') }}">
+
+                                                @error('birth_date')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
-                                                <label for="birthRegistrationNo" class="required">জন্ম নিবন্ধনের
-                                                    নম্বর <span style="color: red;">*</span></label>
-                                                <input type="text" name="birthRegistrationNo" class="form-control"
-                                                    maxlength="17" value="">
+                                                <label for="birth_certificate_no" class="required">
+                                                    জন্ম নিবন্ধনের নম্বর
+                                                    <span style="color: red;">*</span></label>
+
+                                                <input type="text" name="birth_certificate_no" class="form-control"
+                                                    maxlength="17" value="{{ old('birth_certificate_no') }}">
+
+                                                @error('birth_certificate_no')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label for="gender" class="required">লিঙ্গ <span
                                                         style="color: red;">*</span></label>
+
                                                 <select name="gender" class="form-control">
                                                     <option value="">নির্বাচন করুন</option>
-                                                    <option value="1">বালক</option>
-                                                    <option value="2">বালিকা</option>
-                                                    <option value="4">তৃতীয় লিঙ্গ</option>
+                                                    <option value="male">বালক</option>
+                                                    <option value="Female">বালিকা</option>
+                                                    <option value="Third Gender">তৃতীয় লিঙ্গ</option>
                                                 </select>
+
+                                                @error('gender')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -72,9 +101,17 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group">
-                                                <label for="mobileNo" class="required">মোবাইল নম্বর <span
+                                                <label for="phone" class="required">মোবাইল নম্বর <span
                                                         style="color: red;">*</span></label>
-                                                <input class="form-control" type="text" name="mobileNo" value="">
+                                                <input class="form-control" type="text" name="phone"
+                                                    value="{{ old('phone') }}">
+
+                                                @error('phone')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
 
@@ -87,22 +124,45 @@
                                             <div class="form-group">
                                                 <label for="fatherName" class="required">পিতার নাম <span
                                                         style="color: red;">*</span></label>
-                                                <input class="form-control" type="text" name="fatherName" id="" value="">
+                                                <input class="form-control" type="text" name="father_name"
+                                                    value="{{ old('father_name') }}">
+
+                                                @error('father_name')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="fatherNid" class="required">পিতার এনআইডি (NID)
                                                     নম্বর <span style="color: red;">*</span></label>
-                                                <input class="form-control" type="text" name="fatherNid" maxlength="17"
-                                                    value="">
+
+                                                <input class="form-control" type="text" name="father_nid_no"
+                                                    value="{{ old('father_nid_no') }}" maxlength="17">
+
+                                                @error('father_nid_no')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="motherName" class="required">মাতার নাম <span
                                                         style="color: red;">*</span></label>
-                                                <input type="text" class="form-control" name="motherName" value="">
+                                                <input type="text" class="form-control" name="mother_name"
+                                                    value="{{ old('mother_name') }}">
+
+                                                @error('mother_name')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -110,21 +170,30 @@
                                                 <label for="motherNid" class="required">মাতার এনআইডি (NID)
                                                     নম্বর <span style="color: red;">*</span></label>
                                                 <input class="form-control" type="text" class="form-control"
-                                                    maxlength="17" value="">
+                                                    value="{{ old('mother_nid_no') }}" maxlength="17"
+                                                    name="mother_nid_no">
+
+                                                @error('mother_nid_no')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="guardianName" class="">অভিভাবকের নাম</label>
-                                                <input type="text" class="form-control" name="guardianName" value="">
+                                                <input type="text" class="form-control" name="guardian_name"
+                                                    value="{{ old('guardian_name') }}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="guardianNid" class="">অভিভাবকের এনআইডি (NID)
                                                     নম্বর</label>
-                                                <input class="form-control" type="text" maxlength="17" name="guardianNid"
-                                                    value="">
+                                                <input class="form-control" type="text" maxlength="17"
+                                                    name="guardian_nid_no" value="{{ old('guardian_nid_no') }}">
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +208,7 @@
                                                 <small>(যে শ্রেণিতে ভর্তি হতে চান সেটি
                                                     নির্বাচন করুন।)</small>
 
-                                                <select name="class" class="form-control">
+                                                <select name="desire_class" class="form-control">
                                                     <option value="">নির্বাচন করুন</option>
                                                     <option value="1">প্রথম</option>
                                                     <option value="2">দ্বিতীয়</option>
@@ -153,15 +222,22 @@
                                                     <option value="101">প্রথম (ফিডার)</option>
                                                     <option value="501">পঞ্চম (ফিডার)</option>
                                                 </select>
+
+                                                @error('desire_class')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row" id="prevSchoolDetails">
+                                    {{-- <div class="row" id="prevSchoolDetails">
                                         <div class="col-lg-9">
                                             <div class="form-group">
                                                 <label for="previousSchoolName" class="required">পূর্ববর্তী স্কুলের
-                                                    নাম <span style="color: red;">*</span></label>
+                                                    নাম </label>
                                                 <input type="text" name="previousSchoolName" class="form-control">
                                             </div>
                                         </div>
@@ -186,7 +262,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </section>
 
                                 <section class="section box-shadow">
@@ -195,58 +271,84 @@
                                             <label style="color: rgba(128, 128, 128, 1);">বর্তমান ঠিকানা <span
                                                     style="color: red;">*</span></label>
                                             <div class="form-group">
-                                                <label for="permanentAddress" class="required">বিস্তারিত
+                                                <label for="present_address" class="required">বিস্তারিত
                                                     ঠিকানা
                                                 </label>
                                                 <small>(এখানে জেলা এবং থানা লেখার প্রয়োজন নাই।)</small>
-                                                <input class="form-control" type="text" name="presentAddress" id=""
-                                                    value="">
+                                                <input class="form-control" type="text" name="present_address">
+
+                                                @error('present_address')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="form-group">
-                                                <label for="presentDivCode" class="required">বিভাগ <span
+                                                <label for="present_devision" class="required">বিভাগ <span
                                                         style="color: red;">*</span></label>
-                                                <input type="hidden" name="presentDivName" id="" value="">
-                                                <select class="form-control" name="presentDivCode">
-                                                    <option value="">নির্বাচন করুন</option>
-                                                    <option value="1">BARISHAL</option>
-                                                    <option value="2">CHATTOGRAM</option>
-                                                    <option value="3">DHAKA</option>
-                                                    <option value="4">KHULNA</option>
-                                                    <option value="8">MYMENSINGH</option>
-                                                    <option value="5">RAJSHAHI</option>
-                                                    <option value="6">RANGPUR</option>
-                                                    <option value="7">SYLHET</option>
+                                                <select class="form-control" name="present_devision"
+                                                    id="present_division">
+                                                    <option value="">Select Divison</option>
+                                                    @foreach ($divisions as $division)}
+                                                        <option value="{{ $division->id }}">
+                                                            {{ $division->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
+
+                                                @error('present_devision')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="form-group">
-                                                <label for="presentDistCode" class="required">জেলা <span
+                                                <label for="present_district" class="required">জেলা <span
                                                         style="color: red;">*</span></label>
-                                                <input type="hidden" name="presentDistName" id="" value="">
-                                                <select class="form-control" name="presentDistCode">
-                                                    <option value="">নির্বাচন করুন</option>
+                                                <select class="form-control" name="present_district"
+                                                    id="present_district">
                                                 </select>
+
+                                                @error('present_district')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="form-group">
-                                                <label for="presentThanaCode" class="required">থানা <span
+                                                <label for="present_thana" class="required">থানা <span
                                                         style="color: red;">*</span></label>
-                                                <input type="hidden" name="presentThanaName" id="" value="">
-                                                <select class="form-control" name="presentThanaCode">
-                                                    <option value="">নির্বাচন করুন</option>
+                                                <select class="form-control" name="present_thana" id="present_thana">
                                                 </select>
+
+                                                @error('present_thana')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="presentPostalCode" class="">পোস্ট কোড <span
+                                                <label for="present_post_code" class="">পোস্ট কোড <span
                                                         style="color: red;">*</span></label>
-                                                <input class="form-control" type="text" name="presentPostalCode"
-                                                    maxlength="4">
+                                                <input class="form-control" type="text" name="present_post_code"
+                                                    maxlength="4" value="{{ old('present_post_code') }}">
+
+                                                @error('present_post_code')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
 
@@ -259,58 +361,85 @@
                                             <label style="color: rgba(128, 128, 128, 1);">স্থায়ী ঠিকানা <span
                                                     style="color: red;">*</span></label>
                                             <div class="form-group">
-                                                <label for="permanentAddress" class="required">বিস্তারিত
+                                                <label for="permanent_address" class="required">বিস্তারিত
                                                     ঠিকানা
                                                 </label>
                                                 <small>(এখানে জেলা এবং থানা লেখার প্রয়োজন নাই।)</small>
-                                                <input type="text" name="permanentAddress" class="form-control" id=""
-                                                    value="">
+                                                <input type="text" name="permanent_address" class="form-control"
+                                                    id="permanent_address" value="{{ old('permanent_address') }}">
+
+                                                @error('permanent_address')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="form-group">
-                                                <label for="permanentDivCode" class="required">বিভাগ <span
+                                                <label for="permanent_devision" class="required">বিভাগ <span
                                                         style="color: red;">*</span></label>
-                                                <input type="hidden" name="permanentDivName" id="" value="">
-                                                <select class="form-control" name="permanentDivCode">
-                                                    <option value="">নির্বাচন করুন</option>
-                                                    <option value="1">BARISHAL</option>
-                                                    <option value="2">CHATTOGRAM</option>
-                                                    <option value="3">DHAKA</option>
-                                                    <option value="4">KHULNA</option>
-                                                    <option value="8">MYMENSINGH</option>
-                                                    <option value="5">RAJSHAHI</option>
-                                                    <option value="6">RANGPUR</option>
-                                                    <option value="7">SYLHET</option>
+
+                                                <select class="form-control" name="permanent_devision"
+                                                    value="{{ old('permanent_devision') }}" id="permanent_devision">
+                                                    <option value="">Select Divison</option>
+                                                    @foreach ($divisions as $division)}
+                                                        <option value="{{ $division->id }}">
+                                                            {{ $division->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
+
+                                                @error('permanent_devision')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="form-group">
-                                                <label for="permanentDistCode" class="required">জেলা <span
+                                                <label for="permanent_district" class="required">জেলা <span
                                                         style="color: red;">*</span></label>
-                                                <input type="hidden" name="permanentDistName" id="" value="">
-                                                <select class="form-control" name="permanentDistCode">
-                                                    <option value="">নির্বাচন করুন</option>
+                                                <select class="form-control" name="permanent_district"
+                                                    id="permanent_district">
                                                 </select>
+
+                                                @error('permanent_district')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="form-group">
-                                                <label for="permanentThanaCode" class="required">থানা <span
+                                                <label for="permanent_thana" class="required">থানা <span
                                                         style="color: red;">*</span></label>
-                                                <input type="hidden" name="permanentThanaName" id="" value="">
-                                                <select class="form-control" name="permanentThanaCode">
-                                                    <option value="">নির্বাচন করুন</option>
+                                                <select class="form-control" name="permanent_thana" id="permanent_thana">
+
                                                 </select>
+
+                                                @error('permanent_thana')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="form-group">
-                                                <label for="permanentPostalCode">পোস্ট কোড <span
+                                                <label for="permanent_post_code">পোস্ট কোড <span
                                                         style="color: red;">*</span></label>
-                                                <input class="form-control" type="text" name="permanentPostalCode"
+                                                <input class="form-control" type="text" name="permanent_post_code"
                                                     maxlength="4">
+
+                                                @error('permanent_post_code')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -344,6 +473,11 @@
                                                             accept="image/jpeg/png/jpg">
                                                     </div>
                                                 </div>
+                                                @error('image')
+                                                    <span class="invalid-feedback show" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
