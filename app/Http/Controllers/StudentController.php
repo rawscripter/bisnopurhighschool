@@ -172,4 +172,21 @@ class StudentController extends Controller
 
         return view('frontend.register-success', compact('student'));
     }
+
+    public function approve($uuid)
+    {
+        $student = Student::where('uuid', $uuid)->first();
+        $student->status = 1;
+        $student->save();
+        // redirect with success message
+        return redirect()->back()->with('success', 'Application has been approved');
+    }
+    public function reject($uuid)
+    {
+        $student = Student::where('uuid', $uuid)->first();
+        $student->status = 2;
+        $student->save();
+        // redirect with success message
+        return redirect()->back()->with('error', 'Application has been rejected');
+    }
 }

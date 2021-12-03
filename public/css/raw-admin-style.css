@@ -1,0 +1,34 @@
+.badge-warning {
+    background: #fc8408;
+}
+
+.badge-success {
+    background: #06ca20;
+}
+.badge-danger {
+    background: #cc0a0a;
+}
+  body {
+font-family: 'Baloo Da 2', cursive;
+  color: #444444;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+h6 {
+  font-family: "Baloo Da 2", sans-serif !important;
+
+}
+.dataTable-search {border: none !important;}
+
+input.dataTable-input {
+    border: none;
+    background: #eaeaea;
+    border-radius: 4px;
+}
+select.dataTable-selector {
+    border: none;
+}

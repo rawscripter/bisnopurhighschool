@@ -9,16 +9,18 @@ use PDF;
 
 class PDFController extends Controller
 {
-    public function generatePDF($uuid)
+    public function download($uuid)
     {
         $data = Student::where('uuid', $uuid)->first();
         // return view('pdf', compact('student'));
         $name = $data->name . '_' . $data->uuid . '.pdf';
-        return $pdf =  PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('pdf', compact('data'))->stream();
-
-
-
-
+        $pdf =  PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('pdf', compact('data'));
         return $pdf->download($name);
+    }
+    public function view($uuid)
+    {
+        $data = Student::where('uuid', $uuid)->first();
+        $name = $data->name . '_' . $data->uuid . '.pdf';
+        return $pdf =  PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadView('pdf', compact('data'))->stream();
     }
 }
