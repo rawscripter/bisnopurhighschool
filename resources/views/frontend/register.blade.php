@@ -9,7 +9,8 @@
                 <div class="header-title">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <h2><span style="color: #6262ee;"> বেসরকারি</span> বিদ্যালয়ে ভর্তির আবেদন- ২০২২</h2>
+                            <h2><span style="color: #6262ee;"> বিষ্ণপুর উচ্চ বিদ্যালয়ে </span> ভর্তির আবেদন- ২০২২
+                            </h2>
                         </div>
                     </div>
                 </div>
