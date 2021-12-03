@@ -74,12 +74,12 @@
                                         <td>
                                             <a target="_blank" href="{{ route('pdf.view', $student->uuid) }}"
                                                 class="btn btn-outline-primary btn-sm mr-3">
-                                                View Application
+                                                View
                                             </a>
 
                                             <a target="_blank" href="{{ route('pdf.download', $student->uuid) }}"
                                                 class="btn btn-outline-warning btn-sm mr-3">
-                                                Download Application
+                                                Download
                                             </a>
                                         </td>
                                         <td>
@@ -97,6 +97,8 @@
                                                     Reject
                                                 </a>
                                             @endif
+
+
 
                                         </td>
                                     </tr>
