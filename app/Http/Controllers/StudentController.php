@@ -43,7 +43,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        // validate the data
+        // // validate the data
         $data =  $this->validate($request, [
             'name' => 'required|max:255',
             'birth_certificate_no'  => 'required|unique:students|max:255',
@@ -67,11 +67,11 @@ class StudentController extends Controller
             'permanent_post_code' => 'required',
             'transaction_id' => 'required',
         ]);
-
+        $data = $request->all();
 
         // store in the database
         $uuid = $this->randomID();
-        $data = $request->all();
+
         $data['uuid'] = $uuid;
 
         // upload image

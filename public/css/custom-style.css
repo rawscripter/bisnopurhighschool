@@ -96,3 +96,10 @@ font-size: 16px !important;
     text-decoration: underline;
     color: #9b9191;
 }
+body{
+    background-color: #fafafa;
+}
+
+section.section{
+background-color: #fff;
+}

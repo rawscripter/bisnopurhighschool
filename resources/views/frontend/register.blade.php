@@ -237,17 +237,17 @@
                                     <div class="row" id="prevSchoolDetails" style="display: none">
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label for="previousSchoolName" class="required">পূর্ববর্তী স্কুলের
+                                                <label for="prev_school" class="required">পূর্ববর্তী স্কুলের
                                                     নাম </label>
-                                                <input type="text" name="previousSchoolName" class="form-control">
+                                                <input type="text" name="prev_school" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
-                                                <label for="previousClassId" class="required">
+                                                <label for="prev_class" class="required">
                                                     পূর্ববর্তী শ্রেণী <span style="color: red;">*</span></label>
 
-                                                <select name="previousClassId" class="form-control">
+                                                <select name="prev_class" class="form-control">
                                                     <option value="">নির্বাচন করুন</option>
                                                     <option value="1">প্রথম</option>
                                                     <option value="2">দ্বিতীয়</option>
