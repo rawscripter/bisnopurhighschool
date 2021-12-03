@@ -10,7 +10,7 @@
 
                         <div class="d-flex justify-content-center py-4">
                             <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                <img src="{{ asset('/img/logos/logo2.png') }}" style="height: 70px !important" alt="">
+                                <h2> <strong>Bisnopur High School</strong></h2>
                             </a>
                         </div><!-- End Logo -->
 

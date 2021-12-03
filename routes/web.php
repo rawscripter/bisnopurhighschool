@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/students', [App\Http\Controllers\AdminController::class, 'students'])->name('students');
     Route::get('/student/{uuid}/approve', [App\Http\Controllers\StudentController::class, 'approve'])->name('student.approve');
     Route::get('/student/{uuid}/reject', [App\Http\Controllers\StudentController::class, 'reject'])->name('student.reject');
-    Route::get('/logout', [App\Http\Controllers\AdminController::class, 'logout'])->name('home');
+    Route::get('/logout', [App\Http\Controllers\AdminController::class, 'logout'])->name('logout');
     Route::get('/student/{uuid}/pdf/view', [App\Http\Controllers\PDFController::class, 'view'])->name('pdf.view');
     Route::get('/student/{uuid}/pdf/download', [App\Http\Controllers\PDFController::class, 'download'])->name('pdf.download');
 });

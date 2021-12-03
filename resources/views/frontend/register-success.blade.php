@@ -10,14 +10,15 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <h1><strong>
-                                    <span style="color: #008e46;"> Contratulations!</span> Registration
-                                    Successful.</strong>
+                                    <span style="color: #008e46;"> অভিনন্দন!</span> আপনার নিবন্ধন সফল হয়েছে
+                                    .</strong>
                             </h1>
 
-                            <a class="download-button" href="{{ route('student.generate-pdf', $student->uuid) }}">Download
-                                Copy</a>
+                            <a class="download-button" href="{{ route('student.generate-pdf', $student->uuid) }}">
+                                কপি ডাউনলোড করুন
+                            </a>
 
-                            <a class="go-back-button" href="{{ route('student.create') }}">Go Back</a>
+                            <a class="go-back-button" href="{{ route('student.create') }}">নতুন নিবন্ধন করুন</a>
                         </div>
                     </div>
                 </div>

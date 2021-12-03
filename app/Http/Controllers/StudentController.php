@@ -46,7 +46,7 @@ class StudentController extends Controller
         // validate the data
         $data =  $this->validate($request, [
             'name' => 'required|max:255',
-            'birth_certificate_no'  => 'required|max:255',
+            'birth_certificate_no'  => 'required|unique:students|max:255',
             'birth_date'  => 'required|date',
             'gender' => 'required',
             'phone' => 'required',
@@ -169,7 +169,9 @@ class StudentController extends Controller
     public function success($uuid)
     {
         $student = Student::where('uuid', $uuid)->first();
-
+        if (empty($student)) {
+            return redirect()->route('student.create');
+        }
         return view('frontend.register-success', compact('student'));
     }
 
