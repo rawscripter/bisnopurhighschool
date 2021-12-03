@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Bisnopur High School</title>
+    <title>Bishnopur High School</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <link href="{{ asset('/v2/admin/') }}/img/favicon.png" rel="icon">
@@ -43,7 +43,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Bisnopur High School</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Bishnopur High School</span></strong>. All Rights Reserved
         </div>
 
     </footer>

@@ -38,7 +38,7 @@
 <body>
     <div class="school">
         <h2>
-            Bisnopur High School
+            Bishnopur High School
         </h2>
     </div>
     <table style="width:100%">

@@ -10,7 +10,7 @@
 
                         <div class="d-flex justify-content-center py-4">
                             <a href="index.html" class="logo d-flex align-items-center w-auto">
-                                <h2> <strong>Bisnopur High School</strong></h2>
+                                <h2> <strong>Bishnopur High School</strong></h2>
                             </a>
                         </div><!-- End Logo -->
 

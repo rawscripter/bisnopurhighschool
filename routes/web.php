@@ -21,7 +21,8 @@ Auth::routes();
 // middle ware group for admin
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\AdminController::class, 'index']);
+    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
     Route::get('/students', [App\Http\Controllers\AdminController::class, 'students'])->name('students');
     Route::get('/student/{uuid}/approve', [App\Http\Controllers\StudentController::class, 'approve'])->name('student.approve');
     Route::get('/student/{uuid}/reject', [App\Http\Controllers\StudentController::class, 'reject'])->name('student.reject');
